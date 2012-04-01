@@ -12,7 +12,7 @@ class GcalButton
     large: "http://www.google.com/calendar/images/ext/gc_button6.gif"
   }
 
-  def initialize(title, start_time, end_time, sprops)
+  def initialize(title, start_time, end_time, sprops={})
     @title = title
     @start_time = start_time
     @end_time = end_time

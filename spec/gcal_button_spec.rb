@@ -12,13 +12,24 @@ describe GcalButton do
 
   describe "#url" do
     it "returns a Google Calendar Event URL" do
-      expected_url = "http://www.google.com/calendar/event?" +
+      url = "http://www.google.com/calendar/event?" +
         "action=TEMPLATE&" +
         "dates=20430426T180000Z%2F20430426T200000Z&" +
         "sprop=website%3Ahttp%3A%2F%2Fwww.myeventcompany.com&" +
         "text=My+Event"
 
-      button.url.should eql(expected_url)
+      button.url.should eql(url)
+    end
+
+    it "can leave off the sprop hash" do
+      button = GcalButton.new("My Event",
+                              start_time,
+                              end_time)
+      url = "http://www.google.com/calendar/event?" +
+        "action=TEMPLATE&" +
+        "dates=20430426T180000Z%2F20430426T200000Z&" +
+        "text=My+Event"
+      button.url.should eql(url)
     end
 
     it "can accept multiple sprop values" do
@@ -28,14 +39,14 @@ describe GcalButton do
                               website: "http://www.myeventcompany.com",
                               name: "My Event Company")
 
-      expected_url = "http://www.google.com/calendar/event?" +
+      url = "http://www.google.com/calendar/event?" +
         "action=TEMPLATE&" +
         "dates=20430426T180000Z%2F20430426T200000Z&" +
         "sprop=name%3AMy+Event+Company&" +
         "sprop=website%3Ahttp%3A%2F%2Fwww.myeventcompany.com&" +
         "text=My+Event"
 
-      button.url.should eql(expected_url)
+      button.url.should eql(url)
     end
 
     it "can accept Date objects for all day events" do
@@ -44,13 +55,13 @@ describe GcalButton do
                               Date.parse("30 December 2027"),
                               name: "My Event Company")
 
-      expected_url = "http://www.google.com/calendar/event?" +
+      url = "http://www.google.com/calendar/event?" +
         "action=TEMPLATE&" +
         "dates=20271229%2F20271230&" +
         "sprop=name%3AMy+Event+Company&" +
         "text=My+Event"
 
-      button.url.should eql(expected_url)
+      button.url.should eql(url)
     end
   end
 

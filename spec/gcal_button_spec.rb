@@ -37,6 +37,21 @@ describe GcalButton do
 
       button.url.should eql(expected_url)
     end
+
+    it "can accept Date objects for all day events" do
+      button = GcalButton.new("My Event",
+                              Date.parse("29 December 2027"),
+                              Date.parse("30 December 2027"),
+                              name: "My Event Company")
+
+      expected_url = "http://www.google.com/calendar/event?" +
+        "action=TEMPLATE&" +
+        "dates=20271229%2F20271230&" +
+        "sprop=name%3AMy+Event+Company&" +
+        "text=My+Event"
+
+      button.url.should eql(expected_url)
+    end
   end
 
   describe "#image_url" do

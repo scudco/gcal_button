@@ -39,7 +39,11 @@ class GcalButton
   end
 
   def formatted_time(time)
-    time.strftime(GCAL_TIME_FORMAT)
+    if time.class == Date
+      time.strftime(GCAL_DATE_FORMAT)
+    else
+      time.strftime(GCAL_TIME_FORMAT)
+    end
   end
 
   def query_params

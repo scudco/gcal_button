@@ -57,7 +57,7 @@ Do want to use Google's handy 'Add to Google Calendar' images?
 
 Please allow me to take some of your time to explain scarcity and abundance.
 
-> Copying is not theft.  
+> [Copying is not theft](http://youtu.be/IeTybKL1pM4).  
 > Stealing a thing leaves one less left.  
 > Copying it makes one thing more; that's what copying's for.  
 >  

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'gcal_button'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.date        = '2012-03-31'
   s.summary     = "Google Calendar Button"
   s.description = "Generate Google Calendar Button URLs"

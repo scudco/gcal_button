@@ -42,7 +42,7 @@ class GcalButton
     if time.class == Date
       time.strftime(GCAL_DATE_FORMAT)
     else
-      time.strftime(GCAL_TIME_FORMAT)
+      time.to_time.utc.strftime(GCAL_TIME_FORMAT)
     end
   end
 

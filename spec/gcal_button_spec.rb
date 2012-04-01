@@ -1,8 +1,8 @@
 require 'gcal_button'
 
 describe GcalButton do
-  let (:start_time) { DateTime.parse("April 26, 2043 6:00 PM") }
-  let (:end_time) { DateTime.parse("April 26, 2043 8:00 PM") }
+  let (:start_time) { DateTime.parse("April 26, 2043 6:00 PM-07:00") }
+  let (:end_time) { DateTime.parse("April 26, 2043 8:00 PM-07:00") }
   let (:button) do
     GcalButton.new("My Event",
                    start_time,
@@ -14,7 +14,7 @@ describe GcalButton do
     it "returns a Google Calendar Event URL" do
       url = "http://www.google.com/calendar/event?" +
         "action=TEMPLATE&" +
-        "dates=20430426T180000Z%2F20430426T200000Z&" +
+        "dates=20430427T010000Z%2F20430427T030000Z&" +
         "sprop=website%3Ahttp%3A%2F%2Fwww.myeventcompany.com&" +
         "text=My+Event"
 
@@ -27,7 +27,7 @@ describe GcalButton do
                               end_time)
       url = "http://www.google.com/calendar/event?" +
         "action=TEMPLATE&" +
-        "dates=20430426T180000Z%2F20430426T200000Z&" +
+        "dates=20430427T010000Z%2F20430427T030000Z&" +
         "text=My+Event"
       button.url.should eql(url)
     end
@@ -41,7 +41,7 @@ describe GcalButton do
 
       url = "http://www.google.com/calendar/event?" +
         "action=TEMPLATE&" +
-        "dates=20430426T180000Z%2F20430426T200000Z&" +
+        "dates=20430427T010000Z%2F20430427T030000Z&" +
         "sprop=name%3AMy+Event+Company&" +
         "sprop=website%3Ahttp%3A%2F%2Fwww.myeventcompany.com&" +
         "text=My+Event"
